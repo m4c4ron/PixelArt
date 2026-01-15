@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドット絵エディター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 ドット絵エディター</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>カラー:</label>
+                <input type="color" id="colorPicker" value="#000000">
+            </div>
+            <div class="control-group">
+                <label>サイズ:</label>
+                <input type="range" id="gridSize" min="8" max="64" value="32" step="8">
+                <span id="sizeValue">32x32</span>
+            </div>
+            <div class="control-group">
+                <label>ズーム:</label>
+                <input type="range" id="zoomLevel" min="8" max="32" value="15" step="1">
+                <span id="zoomValue">100%</span>
+            </div>
+            <button id="undoBtn">元に戻す</button>
+            <button id="clearBtn">クリア</button>
+            <button id="downloadBtn">ダウンロード</button>
+        </div>
+
+        <div class="tools">
+            <button class="tool-btn active" data-tool="pen">ペン</button>
+            <button class="tool-btn" data-tool="eraser">消しゴム</button>
+            <button class="tool-btn" data-tool="fill">塗りつぶし</button>
+        </div>
+
+        <div class="color-palette-container">
+            <h3>カラーパレット</h3>
+            <div id="colorPalette" class="color-palette"></div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <!-- Download Preview Modal -->
+        <div id="previewModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>ダウンロードプレビュー</h2>
+                <div class="preview-container">
+                    <canvas id="previewCanvas"></canvas>
+                </div>
+                <div class="preview-info">
+                    <p>サイズ: <span id="previewSize"></span></p>
+                </div>
+                <button id="confirmDownload" class="download-confirm-btn">ダウンロード</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
