@@ -258,7 +258,7 @@ canvas.addEventListener('mousemove', (e) => {
 });
 
 canvas.addEventListener('mouseup', () => {
-    if (isDrawing && currentStroke && currentStroke.length > 0) {
+    if (currentTool == `pen` && isDrawing && currentStroke && currentStroke.length > 0) {
         saveHistory();
     }
     isDrawing = false;
@@ -266,7 +266,7 @@ canvas.addEventListener('mouseup', () => {
 });
 
 canvas.addEventListener('mouseleave', () => {
-    if (isDrawing && currentStroke && currentStroke.length > 0) {
+    if (currentTool == 'pen' && isDrawing && currentStroke && currentStroke.length > 0) {
         saveHistory();
     }
     isDrawing = false;
